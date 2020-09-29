@@ -12,13 +12,11 @@ interface FormProps {
 }
 
 const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-	console.log(event.target.value);
 	setZipcodeValue(event.target.value);
 };
 
 const handleCountryCode = (event: ChangeEvent<HTMLSelectElement>) => {
 	setCountryCode(event.target.value);
-	console.log('cc -', countryCode);
 };
 
 export const Form = (props: FormProps) => {
@@ -34,7 +32,6 @@ export const Form = (props: FormProps) => {
 		return <option value={code}>{code}</option>;
 	});
 
-	// could add an dropdown here to handle country code
 	return (
 		<>
 			<form action='#' onSubmit={handleSubmit}>

@@ -1,4 +1,5 @@
 const countryListAlpha2 = {
+	US: 'United States of America (the)',
 	AF: 'Afghanistan',
 	AL: 'Albania',
 	DZ: 'Algeria',
@@ -234,7 +235,6 @@ const countryListAlpha2 = {
 	AE: 'United Arab Emirates (the)',
 	GB: 'United Kingdom of Great Britain and Northern Ireland (the)',
 	UM: 'United States Minor Outlying Islands (the)',
-	US: 'United States of America (the)',
 	UY: 'Uruguay',
 	UZ: 'Uzbekistan',
 	VU: 'Vanuatu',

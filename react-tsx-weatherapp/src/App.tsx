@@ -15,18 +15,17 @@ interface IPlaceProps {
 
 function App() {
 	const [place, setPlace] = useState<IPlaceProps>({
-		city: 'string',
+		city: '',
 		// country: 'string',
 		temp: 0,
 		temp_min: 0,
 		temp_max: 0,
-		description: 'string',
+		description: '',
 	});
 	const [searched, setSearched] = useState(false);
 
 	// HANDLE FORM SUBMIT and pass inputted zipcode to API
 	const handleSubmit = async (zip: string, countryCode: string) => {
-		console.log(zip);
 		console.log('zip,cc - ', zip, countryCode);
 
 		// FETCH DATA FROM API with .then and .catch
@@ -57,7 +56,11 @@ function App() {
 					description: data.weather[0].description,
 				});
 			})
-			.catch((err: Error) => alert(err.message));
+			.catch((err: Error) =>
+				alert(
+					'Please check that your zipcode AND country code are correct.\n\n**This app works best for US and Puerto-Rico Zipcodes'
+				)
+			);
 	};
 
 	const card =
