@@ -15,6 +15,18 @@ form {
   align-items: center;
 }
 
+.weather-card {
+  width: 20%;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+
 form input[type="text"] {
   flex: 1;
   margin: 1rem;
@@ -44,6 +56,15 @@ form input[type="text"] {
 
 .App-link {
   color: #61dafb;
+}
+
+.min-max {
+  display: flex;
+  justify-content: space-around;
+}
+
+.min-or-max {
+  color: gray;
 }
 
 @keyframes App-logo-spin {
