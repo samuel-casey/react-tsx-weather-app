@@ -15,25 +15,25 @@ interface IPlaceProps {
 
 function App() {
 	const [place, setPlace] = useState<IPlaceProps>({
-		city: 'string',
+		city: '',
 		// country: 'string',
 		temp: 0,
 		temp_min: 0,
 		temp_max: 0,
-		description: 'string',
+		description: '',
 	});
 	const [searched, setSearched] = useState(false);
 
 	// HANDLE FORM SUBMIT and pass inputted zipcode to API
-	const handleSubmit = async (zip: string) => {
-		console.log(zip);
+	const handleSubmit = async (zip: string, countryCode: string) => {
+		console.log('zip,cc - ', zip, countryCode);
 
 		// FETCH DATA FROM API with .then and .catch
 
 		// USED THIS Stack Overflow as a guide for switching from async/await to .then() in order to throw an alert for errors
 		// https://stackoverflow.com/questions/41103360/how-to-use-fetch-in-typescript
 		function apiCall(): Promise<any> {
-			let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
+			let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},${countryCode}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
 
 			return fetch(openWeatherAPI)
 				.then((response) => {
@@ -56,7 +56,11 @@ function App() {
 					description: data.weather[0].description,
 				});
 			})
-			.catch((err: Error) => alert(err.message));
+			.catch((err: Error) =>
+				alert(
+					'Please check that your zipcode AND country code are correct.\n\n**This app works best for US and Puerto-Rico Zipcodes'
+				)
+			);
 	};
 
 	const card =
