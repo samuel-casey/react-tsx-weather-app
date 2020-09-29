@@ -17,8 +17,8 @@ const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 };
 
 const handleCountryCode = (event: ChangeEvent<HTMLSelectElement>) => {
-	console.log(event.target.value);
 	setCountryCode(event.target.value);
+	console.log('cc -', countryCode);
 };
 
 export const Form = (props: FormProps) => {
@@ -41,7 +41,10 @@ export const Form = (props: FormProps) => {
 				<label htmlFor='zipcode'>Enter zipcode: </label>
 				<input onChange={(e) => handleChange(e)} type='text' name='zipcode' />
 				<label htmlFor='country'>Select country</label>
-				<select name='country' id='countries' onChange={handleCountryCode}>
+				<select
+					name='country'
+					id='countries'
+					onChange={(e) => handleCountryCode(e)}>
 					{countryOptions}
 				</select>
 				<input type='submit' />
