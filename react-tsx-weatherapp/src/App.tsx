@@ -29,35 +29,35 @@ function App() {
 		console.log(zip);
 
 		// FETCH DATA FROM API with .then and .catch -- I don't know how to use async/await to handle errors in TS, and barely understand how to do it in JS
-		async function apiCall(): Promise<any> {
-			let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
-
-			try {
-				const response = await fetch(openWeatherAPI);
-				const body = await response.json();
-				return body;
-			} catch (err) {
-				if (err) {
-					console.log(err.message);
-				}
-			}
-		}
-
-		// FETCH DATA FROM API with .then and .catch
 		// async function apiCall(): Promise<any> {
 		// 	let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
 
+		// 	try {
 		// 		const response = await fetch(openWeatherAPI);
 		// 		const body = await response.json();
 		// 		return body;
-
+		// 	} catch (err) {
+		// 		if (err) {
+		// 			console.log(err.message);
+		// 		}
 		// 	}
 		// }
 
-		// CONSUME API CALL
+		// FETCH DATA FROM API with .then and .catch
+		async function apiCall(): Promise<any> {
+			let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
 
+			const response = fetch(openWeatherAPI)
+				.then((response) => {
+					const body = response.json();
+					console.log(body);
+					return body;
+				})
+				.catch((err: Error) => alert(err.message));
+		}
+
+		// CONSUME API CALL
 		const data = await apiCall();
-		// console.log(data.sys.country);
 
 		setSearched(true);
 		setPlace({
