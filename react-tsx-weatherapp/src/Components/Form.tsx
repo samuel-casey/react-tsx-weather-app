@@ -19,6 +19,7 @@ export const Form = (props: FormProps) => {
 		e.preventDefault();
 	};
 
+	// could add an dropdown here to handle country code
 	return (
 		<form action='#' onSubmit={handleSubmit}>
 			<label htmlFor='zipcode'>Enter zipcode: </label>
