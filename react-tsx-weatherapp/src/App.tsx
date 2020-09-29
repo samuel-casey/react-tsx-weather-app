@@ -47,27 +47,28 @@ function App() {
 		async function apiCall(): Promise<any> {
 			let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
 
-			const response = fetch(openWeatherAPI)
+			return fetch(openWeatherAPI)
 				.then((response) => {
 					const body = response.json();
-					console.log(body);
 					return body;
 				})
 				.catch((err: Error) => alert(err.message));
 		}
 
 		// CONSUME API CALL
-		const data = await apiCall();
-
-		setSearched(true);
-		setPlace({
-			city: data.name,
-			// country: data.sys.country,
-			temp: data.main.temp,
-			temp_min: data.main.temp_min,
-			temp_max: data.main.temp_max,
-			description: data.weather.description,
-		});
+		apiCall()
+			.then((data) => {
+				setSearched(true);
+				setPlace({
+					city: data.name,
+					// country: data.sys.country,
+					temp: data.main.temp,
+					temp_min: data.main.temp_min,
+					temp_max: data.main.temp_max,
+					description: data.weather.description,
+				});
+			})
+			.catch((err: Error) => alert(err.message));
 	};
 
 	const card =
