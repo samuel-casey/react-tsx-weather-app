@@ -25,7 +25,9 @@ export const WeatherCard = (props: WeatherCardProps) => {
 			<p>{props.city}</p>
 			{/* <p>{props.country}</p> */}
 			<h1 className={`${changeColor}`}>{props.temp}</h1>
-			<h2>{props.description}</h2>
+			<h3>
+				<em>{props.description}</em>
+			</h3>
 			<div className='min-max'>
 				<div className='min-or-max'>
 					<h4>Min:</h4>

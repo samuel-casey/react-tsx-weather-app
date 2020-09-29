@@ -53,7 +53,7 @@ function App() {
 					temp: data.main.temp,
 					temp_min: data.main.temp_min,
 					temp_max: data.main.temp_max,
-					description: data.weather.description,
+					description: data.weather[0].description,
 				});
 			})
 			.catch((err: Error) => alert(err.message));
