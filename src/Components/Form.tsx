@@ -46,7 +46,7 @@ export const Form = (props: FormProps) => {
 				</select>
 				<input type='submit' />
 			</form>
-			<a target='#' href='https://www.iso.org/obp/ui/#search'>
+			<a target='#' href='https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes'>
 				What's my country code?
 			</a>
 		</>
