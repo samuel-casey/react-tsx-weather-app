@@ -20,8 +20,13 @@ select {
   margin: 0.5rem;
 }
 
+.weather-container {
+  background: #f8f2d6;
+}
+
 .weather-card {
   width: 20%;
+  background-color: #738088;
 }
 
 .red {
@@ -63,13 +68,18 @@ form input[type="text"] {
   color: #61dafb;
 }
 
-.min-max {
-  display: flex;
-  justify-content: space-around;
+.App img {
+  background-color: #738088;
+  width: 20%;
+  margin-top: 1rem;
 }
 
-.min-or-max {
-  color: gray;
+.weather-img {
+  border: 1px solid black;
+}
+
+.min-or-max h4 {
+  color: navy;
 }
 
 @keyframes App-logo-spin {

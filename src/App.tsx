@@ -1,16 +1,16 @@
-import React, { useState, SyntheticEvent } from "react";
+import React, { useState } from "react";
 import { Form } from "./Components/Form";
 import { WeatherCard } from "./Components/WeatherCard";
 import "./App.css";
 
 // interfaces & types
 interface IPlaceProps {
-  city?: string;
-  img?: string;
-  temp?: number;
-  temp_min?: number;
-  temp_max?: number;
-  description?: string;
+  city: string;
+  img: string;
+  temp: number;
+  temp_min: number;
+  temp_max: number;
+  description: string;
 }
 
 function App() {
@@ -28,10 +28,7 @@ function App() {
   const handleSubmit = async (zip: string, countryCode: string) => {
     console.log("zip,cc - ", zip, countryCode);
 
-    // FETCH DATA FROM API with .then and .catch
-
-    // USED THIS Stack Overflow as a guide for switching from async/await to .then() in order to throw an alert for errors
-    // https://stackoverflow.com/questions/41103360/how-to-use-fetch-in-typescript
+    // FETCH DATA FROM API
     function apiCall(): Promise<any> {
       let openWeatherAPI: string = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},${countryCode}&units=imperial&appid=8f02608638b1891744e6b2750a862506`;
 
